@@ -17,12 +17,32 @@ public class TodoPage extends BasePage {
 	}
 
 	@FindBy(how = How.XPATH, using = "//input[@placeholder='What needs to be done?']")
-	private static WebElement inputText;
+	public static WebElement inputText;
+
+	@FindBy(how = How.XPATH, using = "//label[normalize-space()='Adopter de bonnes pratiques de test']")
+	public static WebElement textTodo;
+	
+	@FindBy(how = How.XPATH, using = "//input[@class='toggle']")
+	public static WebElement checkBoxTodo;
 
 	public void submitTodo(String todo) {
 		inputText.sendKeys(todo);
 		inputText.sendKeys(Keys.ENTER);
 
+	}
+
+	public Boolean isElementDisplayed(WebElement element) {
+		Boolean isElementDisplayed = element.isDisplayed();
+		return isElementDisplayed;
+	}
+
+	public String checkElementContain(WebElement element) {
+		String fieldTodo = element.getText();
+		return fieldTodo;
+	}
+	public Boolean isCheckBoxSelected(WebElement element) {
+		Boolean isCheckBoxSelected = element.isSelected();
+		return isCheckBoxSelected;
 	}
 
 }

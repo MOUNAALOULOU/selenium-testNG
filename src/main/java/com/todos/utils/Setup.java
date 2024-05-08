@@ -20,7 +20,7 @@ public class Setup extends BasePage{
 	}
 	@AfterMethod
         public void tearDown() {
-        	driver.quit();
+        //	driver.quit();
         }
 	
 }
